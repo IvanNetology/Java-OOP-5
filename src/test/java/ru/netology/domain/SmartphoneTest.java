@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class SmartphoneTest {
     private ProductRepository repo = new ProductRepository();
     private ProductManager manager = new ProductManager(repo);
+
     private Smartphone smart1 = new Smartphone(1, "Note", 80000, "Samsung");
     private Smartphone smart2 = new Smartphone(2, "Iphone", 60000, "Apple");
     private Smartphone smart3 = new Smartphone(3, "Note", 80000, "Honor");
@@ -25,6 +26,7 @@ class SmartphoneTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchNotFound() {
         manager.add(smart1);
@@ -40,6 +42,7 @@ class SmartphoneTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchOneName() {
         manager.add(smart1);
@@ -55,6 +58,7 @@ class SmartphoneTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchTwoName() {
         manager.add(smart1);
@@ -70,6 +74,7 @@ class SmartphoneTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchOneCompany() {
         manager.add(smart1);
@@ -85,6 +90,7 @@ class SmartphoneTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchTwoCompany() {
         manager.add(smart1);
@@ -100,6 +106,7 @@ class SmartphoneTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchOneNameOneCompany() {
         manager.add(smart1);
@@ -115,6 +122,7 @@ class SmartphoneTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchNameAndCompany() {
         manager.add(smart1);

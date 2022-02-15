@@ -26,6 +26,7 @@ class BookTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchNotFound() {
         manager.add(book1);
@@ -41,6 +42,7 @@ class BookTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchOneName() {
         manager.add(book1);
@@ -56,6 +58,7 @@ class BookTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchTwoName() {
         manager.add(book1);
@@ -71,6 +74,7 @@ class BookTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchOneAuthor() {
         manager.add(book1);
@@ -86,6 +90,7 @@ class BookTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchTwoAuthor() {
         manager.add(book1);
@@ -101,6 +106,7 @@ class BookTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchOneNameOneAuthor() {
         manager.add(book1);
@@ -116,6 +122,7 @@ class BookTest {
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
+
     @Test
     public void searchWhereMatchNameAndAuthor() {
         manager.add(book1);

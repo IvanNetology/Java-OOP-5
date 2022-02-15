@@ -29,12 +29,4 @@ public class ProductManager {
         }
         return result;
     }
-
-//    public boolean matches(Product item, String search) {
-//        if (item.getName().contains(search)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 }
