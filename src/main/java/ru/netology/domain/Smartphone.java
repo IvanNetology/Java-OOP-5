@@ -1,5 +1,7 @@
 package ru.netology.domain;
 
+import java.util.function.Supplier;
+
 public class Smartphone extends Product {
     private String company;
 

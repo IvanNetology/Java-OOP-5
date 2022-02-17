@@ -1,5 +1,7 @@
 package ru.netology.domain;
 
+import java.util.function.Supplier;
+
 public class Product {
     private int id;
     private String name;

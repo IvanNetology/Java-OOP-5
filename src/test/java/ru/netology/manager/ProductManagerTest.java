@@ -11,11 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductManagerTest {
     private ProductRepository repo = new ProductRepository();
     private ProductManager manager = new ProductManager(repo);
-    private Product book1 = new Book(1, "Алгебра", 350, "Жилин Н.А");
-    private Product book2 = new Book(2, "Химия", 500, "Непряев С.Л.");
-    private Product smart1 = new Smartphone(3, "S21 Ultra", 80000, "Samsung");
-    private Product smart2 = new Smartphone(4, "10X", 60000, "Apple");
-    private Product book3 = new Book(5, "Алгебра", 450, "Суслов Р.В");
+    private Book book1 = new Book(1, "Алгебра", 350, "Жилин Н.А");
+    private Book book2 = new Book(2, "Химия", 500, "Непряев С.Л.");
+    private Smartphone smart1 = new Smartphone(3, "S21 Ultra", 80000, "Samsung");
+    private Smartphone smart2 = new Smartphone(4, "10X", 60000, "Apple");
+    private Book book3 = new Book(5, "Алгебра", 450, "Суслов Р.В");
+    private Smartphone smart3 = new Smartphone(6, "S21 Ultra", 80000, "Honor");
 
     @Test
     public void addBook() {
@@ -60,7 +61,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void shouldOneMatch() {
+    public void shouldOneMatchBook() {
         manager.add(smart2);
         manager.add(book1);
         manager.add(smart1);
@@ -74,7 +75,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void shouldTwoMatch() {
+    public void shouldTwoMatchBook() {
         manager.add(smart2);
         manager.add(book1);
         manager.add(smart1);
@@ -84,6 +85,36 @@ class ProductManagerTest {
         String name = "Алгебра";
 
         Product[] expected = {book1, book3};
+        Product[] actual = manager.searchBy(name);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldOneMatchSmart() {
+        manager.add(smart2);
+        manager.add(book1);
+        manager.add(smart1);
+        manager.add(book2);
+
+        String name = "10X";
+
+        Product[] expected = {smart2};
+        Product[] actual = manager.searchBy(name);
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldTwoMatchSmart() {
+        manager.add(smart2);
+        manager.add(book1);
+        manager.add(smart1);
+        manager.add(book2);
+        manager.add(book3);
+        manager.add(smart3);
+
+        String name = "S21 Ultra";
+
+        Product[] expected = {smart1, smart3};
         Product[] actual = manager.searchBy(name);
         assertArrayEquals(expected, actual);
     }
