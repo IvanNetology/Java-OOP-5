@@ -1,5 +1,7 @@
 package ru.netology.domain;
 
+import java.util.function.Supplier;
+
 public class Product {
     private int id;
     private String name;
@@ -12,6 +14,14 @@ public class Product {
         this.id = id;
         this.name = name;
         this.price = price;
+    }
+
+    public boolean matches(String search) {
+        if (getName().contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getId() {
@@ -38,3 +48,4 @@ public class Product {
         this.price = price;
     }
 }
+

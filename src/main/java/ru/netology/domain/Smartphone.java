@@ -1,5 +1,7 @@
 package ru.netology.domain;
 
+import java.util.function.Supplier;
+
 public class Smartphone extends Product {
     private String company;
 
@@ -18,5 +20,17 @@ public class Smartphone extends Product {
 
     public void setCompany(String company) {
         this.company = company;
+    }
+
+    @Override
+    public boolean matches(String search) {
+        if (super.matches(search)) {
+            return true;
+        }
+        if (getCompany().contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

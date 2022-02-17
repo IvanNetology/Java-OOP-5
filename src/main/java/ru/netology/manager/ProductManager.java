@@ -15,10 +15,10 @@ public class ProductManager {
         repository.save(item);
     }
 
-    public Product[] searchBy(String text) {
+    public Product[] searchBy(String search) {
         Product[] result = new Product[0];
         for (Product item : repository.findAll()) {
-            if (matches(item, text)) {
+            if (item.matches(search)) {
                 int length = result.length + 1;
                 Product[] tmp = new Product[length];
                 System.arraycopy(result, 0, tmp, 0, result.length);
@@ -28,13 +28,5 @@ public class ProductManager {
             }
         }
         return result;
-    }
-
-    public boolean matches(Product item, String search) {
-        if (item.getName().contains(search)) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
